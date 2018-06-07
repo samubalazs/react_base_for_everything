@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+
+import './App.scss';
 
 import {
   serverOnlineRequest,
@@ -42,7 +45,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        hello
+        <Button>hello</Button>
       </div>
     );
   }

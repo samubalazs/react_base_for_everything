@@ -4,7 +4,9 @@ import cors from 'cors';
 import serialize from 'serialize-javascript';
 import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+
 import App from '../App';
 import universalReducer from '../reducers/universalReducer';
 
@@ -14,7 +16,7 @@ const port = 8080;
 app.use(cors());
 app.use(express.static('public'));
 
-function renderFullPage(html, preloadedState) {
+function renderFullPage(html, preloadedState, helmet) {
   return `
     <!DOCTYPE html>
       <html>
@@ -32,11 +34,15 @@ function renderFullPage(html, preloadedState) {
 
 function handleRender(req, res) {
   const store = createStore(universalReducer);
+  const location = req.url;
+  const context = {};
 
   const html = renderToString(
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter location={location} context={context}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   );
 
   const preloadedState = store.getState();
@@ -44,6 +50,6 @@ function handleRender(req, res) {
   res.send(renderFullPage(html, preloadedState));
 }
 
-app.use(handleRender);
+app.get('/*', handleRender);
 
 app.listen(port);
