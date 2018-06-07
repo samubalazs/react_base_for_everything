@@ -50,6 +50,7 @@ const browserConfig = {
   devServer: {
     contentBase: './public',
     inline: true,
+    publicPath: '/',
     historyApiFallback: {
       index: 'index.html'
     }

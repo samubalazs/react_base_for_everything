@@ -2,7 +2,7 @@ Implemented:
 - server side rendering
 - offline redux
 - linter
+- routes
 
 Todo:
-- routes
 - test (mocha, chai, enzyme?)

@@ -4,7 +4,7 @@ import cors from 'cors';
 import serialize from 'serialize-javascript';
 import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
-import { BrowserRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import App from '../App';
@@ -38,11 +38,11 @@ function handleRender(req, res) {
   const context = {};
 
   const html = renderToString(
-    <BrowserRouter location={location} context={context}>
+    <StaticRouter basename='/' location={location} context={context}>
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
+    </StaticRouter>
   );
 
   const preloadedState = store.getState();
