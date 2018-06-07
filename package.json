@@ -1,0 +1,64 @@
+{
+  "name": "underconstruction",
+  "version": "1.0.0",
+  "description": "build up yourself",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel open:src open:watch",
+    "open:src": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "open:watch": "nodemon server.js",
+    "test": "jest --coverage",
+    "linter": "eslint src",
+    "lintfix": "eslint src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "later"
+  },
+  "keywords": [
+    "later"
+  ],
+  "author": "Balazs Samu",
+  "license": "ISC",
+  "dependencies": {
+    "@redux-offline/redux-offline": "^2.3.3",
+    "axios": "^0.18.0",
+    "classnames": "^2.2.5",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "less": "^3.0.4",
+    "react": "^16.4.0",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "serialize-javascript": "^1.5.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "less-loader": "^4.1.0",
+    "nodemon": "^1.17.5",
+    "npm-run-all": "^4.1.3",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.3",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

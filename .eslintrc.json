@@ -1,0 +1,22 @@
+{
+  "extends": "google",
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "max-len": ["error", { "code": 100 }],
+    "require-jsdoc": ["error", {
+      "require": {
+        "FunctionDeclaration": false,
+        "MethodDefinition": false,
+        "ClassDeclaration": false,
+        "ArrowFunctionExpression": false,
+        "FunctionExpression": false
+      }
+    }],
+    "object-curly-spacing": ["error", "always", {
+      "objectsInObjects": false
+    }]
+  }
+}
